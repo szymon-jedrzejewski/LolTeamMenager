@@ -1,1 +1,1 @@
-Simple game where you manager of League of Legends team.
+Simple game where you're the manager of a League of Legends team.
