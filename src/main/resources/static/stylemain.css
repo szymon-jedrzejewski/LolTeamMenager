@@ -1,0 +1,36 @@
+body{
+    background: #336e89;
+}
+#container{
+    background: #60a5ea;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: 1200px;
+    margin: auto;
+}
+.actionbars{
+    background: #648ce5;
+    margin-right: 5px;
+    float: left;
+    border: 2px #1c9ac7 solid;
+    padding: 2px;
+}
+.link{
+    text-decoration: none;
+}
+.link:visited{
+    text-decoration: none;
+}
+#lpanel{
+    clear: both;
+    float: left;
+    padding: 50px;
+
+}
+#content{
+    float: left;
+}
+footer{
+    clear: both;
+}

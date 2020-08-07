@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>FirstView</title>
+    <link rel="stylesheet" href="yeet.css">
 </head>
 <body>
 <h1>First View</h1>
