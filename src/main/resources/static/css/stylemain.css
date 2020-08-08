@@ -1,29 +1,46 @@
 body{
-    background-image: linear-gradient(blue,blueviolet);
+    background: url("../css/prism.png");
+}
+h1{
+    text-align: center;
+    background: black;
+    border-top: 5px #272b2d solid;
+    border-bottom: 5px #272b2d solid;
+    color: white;
+    text-transform: uppercase;
 }
 #container{
-    background: #60a5ea;
+    background: #0090c1;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
+    margin-top: 20px;
     width: 1200px;
     margin: auto;
+    border-radius: 40px;
+    border: 2px #022f40 solid;
 }
 .actionbars{
-    background: #648ce5;
-    margin-right: 5px;
-    float: left;
-    border: 2px #1c9ac7 solid;
-    padding: 2px;
+    background: #38aecc;
+    width: 400px;
+    height: 70px;
+    border-radius: 5px;
+    margin: 20px;
+    margin-top: 20px;
+    margin-left: 400px;
+    text-align: center;
+    font-size: 30px;
+
 }
 .link{
     text-decoration: none;
+    color: black;
+    margin: 20px;
 }
 .link:visited{
     text-decoration: none;
+    color: black;
 }
 #lpanel{
-    clear: both;
     float: left;
     padding: 50px;
 
@@ -31,6 +48,17 @@ body{
 #content{
     float: left;
 }
-footer{
+#footer{
     clear: both;
+    text-align: center;
+    background: black;
+    float: bottom;
+    height: 50px;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border: 2px black solid;
+}
+#text{
+    padding: 15px;
+    color: white;
 }

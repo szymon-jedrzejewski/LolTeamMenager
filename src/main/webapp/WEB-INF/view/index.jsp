@@ -2,9 +2,10 @@
 <html>
 <head>
     <title>FirstView</title>
-    <link rel="stylesheet" href="yeet.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}css\stylesub.css">
 </head>
 <body>
 <h1>First View</h1>
+cancer
 </body>
 </html>

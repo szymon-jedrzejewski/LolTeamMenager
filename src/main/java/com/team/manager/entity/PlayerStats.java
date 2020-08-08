@@ -20,6 +20,32 @@ public class PlayerStats {
     @Column(name = "positioning")
     private int positioning;
 
+    private int[] statArray;
+
+    public PlayerStats(int mechanics, int mapAwareness, int laningPhase, int teamfighting, int positioning) {
+        this.mechanics = mechanics;
+        this.mapAwareness = mapAwareness;
+        this.laningPhase = laningPhase;
+        this.teamfighting = teamfighting;
+        this.positioning = positioning;
+
+        this.statArray = new int[]{mechanics
+                ,mapAwareness
+                ,laningPhase
+                ,teamfighting
+                ,positioning};
+    }
+
+
+
+    public int[] getStatArray() {
+        return statArray;
+    }
+
+    public void setStatArray(int[] statArray) {
+        this.statArray = statArray;
+    }
+
     public int getId() {
         return id;
     }
