@@ -1,5 +1,5 @@
 body{
-    background: #336e89;
+    background-image: linear-gradient(blue,blueviolet);
 }
 #container{
     background: #60a5ea;
