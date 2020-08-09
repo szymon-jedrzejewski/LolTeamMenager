@@ -26,23 +26,25 @@ public class Player {
     @Column(name = "age")
     private String age;
 
-    @Column(name = "player_id")
-    private int playerId;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "stats_id")
+    private int statsId;
 
-    @Column(name = "team_id")
+    @OneToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "team_id")
     private int teamId;
 
     public Player() {
     }
 
-    public Player(int id, String name, String surname, String nick, String role, String age, int playerId, int teamId) {
+    public Player(int id, String name, String surname, String nick, String role, String age, int statsId, int teamId) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.nick = nick;
         this.role = role;
         this.age = age;
-        this.playerId = playerId;
+        this.statsId = statsId;
         this.teamId = teamId;
     }
 
@@ -90,8 +92,8 @@ public class Player {
         this.age = age;
     }
 
-    public int getPlayerId() {
-        return playerId;
+    public int getStatsId() {
+        return statsId;
     }
 
     public int getTeamId() {
@@ -107,7 +109,7 @@ public class Player {
                 ", nick='" + nick + '\'' +
                 ", role='" + role + '\'' +
                 ", age='" + age + '\'' +
-                ", playerId=" + playerId +
+                ", playerId=" + statsId +
                 ", teamId=" + teamId +
                 '}';
     }
