@@ -21,4 +21,23 @@ public class Judge {
         return score;
     }
 
+    public String matchResult(PlayerStats AplayerStats[],PlayerStats BplayerStats[]){
+        int sA=0,sB=0;
+        String outcome;
+        for(int i=0; i<5; i++){
+            sA=sA+laneMatchup(AplayerStats[i],BplayerStats[i]);
+            sB=sB+laneMatchup(BplayerStats[i],AplayerStats[i]);
+        }
+        System.out.println("Team A score: "+sA+" Team B score: "+sB);
+        if(sA>sB){
+            outcome="Team A won";
+        }
+        else if(sA==sB){
+            outcome="Draw";
+        }
+        else{
+            outcome="Team B won";
+        }
+        return outcome;
+    }
 }
