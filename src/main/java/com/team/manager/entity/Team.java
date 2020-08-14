@@ -1,5 +1,7 @@
 package com.team.manager.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,6 +14,7 @@ public class Team {
 
     private String name;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "team",
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private Player player;

@@ -1,5 +1,7 @@
 package com.team.manager.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Arrays;
 
@@ -20,6 +22,7 @@ public class PlayerStats {
 
     private int positioning;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "playerStats",
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private Player player;
