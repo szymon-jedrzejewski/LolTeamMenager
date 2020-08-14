@@ -2,7 +2,6 @@ package com.team.manager.service;
 
 import com.team.manager.entity.Player;
 import com.team.manager.repository.PlayerRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,5 +17,9 @@ public class PlayerService {
 
     public List<Player> getPlayers() {
         return playerRepository.findAll();
+    }
+
+    public Player getPlayerById(int id) {
+        return playerRepository.findById(id).orElse(null);
     }
 }

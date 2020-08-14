@@ -9,19 +9,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
-public class FirstController {
+@Controller
+public class UIController {
+
+    private final PlayerService playerService;
 
     @Autowired
-    private PlayerService playerService;
+    public UIController(PlayerService playerService) {
+        this.playerService = playerService;
+    }
 
     @GetMapping("/first_view")
     public String hello() {
         return "index";
-    }
-
-    @GetMapping("/players")
-    public List<Player> findAllPlayers() {
-        return playerService.getPlayers();
     }
 }
