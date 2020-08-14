@@ -3,49 +3,42 @@ package com.team.manager.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "player")
 public class Player {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private int id;
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "surname")
     private String surname;
 
-    @Column(name = "nick")
     private String nick;
 
-    @Column(name = "role")
     private String role;
 
-    @Column(name = "age")
     private String age;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "stats_id")
-    private int statsId;
+    @JoinColumn(name = "stats_id", nullable = false)
+    private PlayerStats playerStats;
 
     @OneToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinColumn(name = "team_id")
-    private int teamId;
+    @JoinColumn(name = "team_id", nullable = false)
+    private Team team;
 
     public Player() {
     }
 
-    public Player(int id, String name, String surname, String nick, String role, String age, int statsId, int teamId) {
+    public Player(int id, String name, String surname, String nick, String role, String age, PlayerStats playerStats, Team team) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.nick = nick;
         this.role = role;
         this.age = age;
-        this.statsId = statsId;
-        this.teamId = teamId;
+        this.playerStats = playerStats;
+        this.team = team;
     }
 
     public int getId() {
@@ -92,12 +85,12 @@ public class Player {
         this.age = age;
     }
 
-    public int getStatsId() {
-        return statsId;
+    public PlayerStats getPlayerStats() {
+        return playerStats;
     }
 
-    public int getTeamId() {
-        return teamId;
+    public Team getTeam() {
+        return team;
     }
 
     @Override
@@ -109,8 +102,8 @@ public class Player {
                 ", nick='" + nick + '\'' +
                 ", role='" + role + '\'' +
                 ", age='" + age + '\'' +
-                ", playerId=" + statsId +
-                ", teamId=" + teamId +
+                ", playerId=" + playerStats +
+                ", teamId=" + team +
                 '}';
     }
 }

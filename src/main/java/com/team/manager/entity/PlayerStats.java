@@ -4,46 +4,27 @@ import javax.persistence.*;
 import java.util.Arrays;
 
 @Entity
-@Table(name = "player_stats")
 public class PlayerStats {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private int id;
 
-    @Column(name = "mechanics")
     private int mechanics;
 
-    @Column(name = "map_awareness")
     private int mapAwareness;
 
-    @Column(name = "laning_phase")
     private int laningPhase;
 
-    @Column(name = "teamfighting")
     private int teamfighting;
 
-    @Column(name = "positioning")
     private int positioning;
 
-    private int[] statArray;
+    @OneToOne(mappedBy = "playerStats",
+            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    private Player player;
 
     public PlayerStats() {
-    }
-
-    public PlayerStats(int mechanics, int mapAwareness, int laningPhase, int teamfighting, int positioning) {
-        this.mechanics = mechanics;
-        this.mapAwareness = mapAwareness;
-        this.laningPhase = laningPhase;
-        this.teamfighting = teamfighting;
-        this.positioning = positioning;
-
-        this.statArray = new int[]{mechanics
-                , mapAwareness
-                , laningPhase
-                , teamfighting
-                , positioning};
     }
 
     public PlayerStats(int id, int mechanics, int mapAwareness, int laningPhase, int teamfighting, int positioning) {
@@ -53,19 +34,6 @@ public class PlayerStats {
         this.laningPhase = laningPhase;
         this.teamfighting = teamfighting;
         this.positioning = positioning;
-        this.statArray = new int[]{mechanics
-                , mapAwareness
-                , laningPhase
-                , teamfighting
-                , positioning};
-    }
-
-    public int[] getStatArray() {
-        return statArray;
-    }
-
-    public void setStatArray(int[] statArray) {
-        this.statArray = statArray;
     }
 
     public int getId() {
@@ -121,7 +89,6 @@ public class PlayerStats {
                 ", laningPhase=" + laningPhase +
                 ", teamfighting=" + teamfighting +
                 ", positioning=" + positioning +
-                ", statArray=" + Arrays.toString(statArray) +
                 '}';
     }
 }

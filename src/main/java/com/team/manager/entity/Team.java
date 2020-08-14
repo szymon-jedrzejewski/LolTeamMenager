@@ -4,31 +4,24 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "team")
 public class Team {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private int id;
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "rank")
-    private String rank;
-
-    @Column(name = "players")
-    private List<String> players;
+    @OneToOne(mappedBy = "team",
+            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    private Player player;
 
     public Team() {
     }
 
-    public Team(int id, String name, String rank, List<String> players) {
+    public Team(int id, String name) {
         this.id = id;
         this.name = name;
-        this.rank = rank;
-        this.players = players;
     }
 
     public int getId() {
@@ -43,20 +36,12 @@ public class Team {
         this.name = name;
     }
 
-    public String getRank() {
-        return rank;
+    public Player getPlayer() {
+        return player;
     }
 
-    public void setRank(String rank) {
-        this.rank = rank;
-    }
-
-    public List<String> getPlayers() {
-        return players;
-    }
-
-    public void setPlayers(List<String> players) {
-        this.players = players;
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     @Override
@@ -64,8 +49,7 @@ public class Team {
         return "Team{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", rank='" + rank + '\'' +
-                ", players=" + players +
+                ", player=" + player +
                 '}';
     }
 }
