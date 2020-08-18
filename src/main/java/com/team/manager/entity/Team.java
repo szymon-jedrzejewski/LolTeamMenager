@@ -9,21 +9,19 @@ import java.util.List;
 public class Team {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
     private String name;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "team",
-            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @OneToOne(mappedBy = "team")
     private Player player;
 
     public Team() {
     }
 
-    public Team(int id, String name) {
-        this.id = id;
+    public Team(String name) {
         this.name = name;
     }
 

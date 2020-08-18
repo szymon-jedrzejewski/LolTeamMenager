@@ -22,4 +22,8 @@ public class PlayerService {
     public Player getPlayerById(int id) {
         return playerRepository.findById(id).orElse(null);
     }
+
+    public Player addPlayer(Player player) {
+        return playerRepository.save(player);
+    }
 }

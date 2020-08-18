@@ -1,12 +1,9 @@
 package com.team.manager.controller;
 
 import com.team.manager.entity.Player;
-import com.team.manager.repository.PlayerRepository;
 import com.team.manager.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +21,10 @@ public class ApiController {
     @GetMapping("/players")
     public List<Player> findAllPlayers() {
         return playerService.getPlayers();
+    }
+
+    @PostMapping("/add")
+    public Player addPlayer(@RequestBody Player player) {
+        return playerService.addPlayer(player);
     }
 }

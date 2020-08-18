@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class PlayerStats {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
     private int mechanics;
@@ -23,15 +23,13 @@ public class PlayerStats {
     private int positioning;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "playerStats",
-            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @OneToOne(mappedBy = "playerStats")
     private Player player;
 
     public PlayerStats() {
     }
 
-    public PlayerStats(int id, int mechanics, int mapAwareness, int laningPhase, int teamfighting, int positioning) {
-        this.id = id;
+    public PlayerStats(int mechanics, int mapAwareness, int laningPhase, int teamfighting, int positioning) {
         this.mechanics = mechanics;
         this.mapAwareness = mapAwareness;
         this.laningPhase = laningPhase;

@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Player {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
     private String name;
@@ -17,28 +17,25 @@ public class Player {
 
     private String role;
 
-    private String age;
+    private int age;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "stats_id", nullable = false)
+    @JoinColumn(name = "stats_id")
     private PlayerStats playerStats;
 
     @OneToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinColumn(name = "team_id", nullable = false)
+    @JoinColumn(name = "team_id")
     private Team team;
 
     public Player() {
     }
 
-    public Player(int id, String name, String surname, String nick, String role, String age, PlayerStats playerStats, Team team) {
-        this.id = id;
+    public Player(String name, String surname, String nick, String role, int age) {
         this.name = name;
         this.surname = surname;
         this.nick = nick;
         this.role = role;
         this.age = age;
-        this.playerStats = playerStats;
-        this.team = team;
     }
 
     public int getId() {
@@ -77,11 +74,11 @@ public class Player {
         this.role = role;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -91,6 +88,14 @@ public class Player {
 
     public Team getTeam() {
         return team;
+    }
+
+    public void setPlayerStats(PlayerStats playerStats) {
+        this.playerStats = playerStats;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 
     @Override
