@@ -47,4 +47,9 @@ public class ApiController {
     public String deletePlayer(@PathVariable String nick) {
         return playerService.deletePlayer(nick);
     }
+
+    @PutMapping("/update")
+    public Player updatePlayer(@RequestBody Player player) {
+        return playerService.updatePlayer(player);
+    }
 }
