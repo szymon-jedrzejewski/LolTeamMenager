@@ -26,4 +26,8 @@ public class PlayerService {
     public Player addPlayer(Player player) {
         return playerRepository.save(player);
     }
+
+    public Player getPlayerByNick(String nick) {
+        return playerRepository.findByNick(nick).orElse(null);
+    }
 }

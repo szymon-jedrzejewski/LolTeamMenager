@@ -23,6 +23,16 @@ public class ApiController {
         return playerService.getPlayers();
     }
 
+    @GetMapping("/playerById/{id}")
+    public Player getPlayerById(@PathVariable int id) {
+        return playerService.getPlayerById(id);
+    }
+
+    @GetMapping("/player/{nick}")
+    public Player getPlayerByNick(@PathVariable String nick) {
+        return playerService.getPlayerByNick(nick);
+    }
+
     @PostMapping("/add")
     public Player addPlayer(@RequestBody Player player) {
         return playerService.addPlayer(player);
