@@ -37,4 +37,14 @@ public class ApiController {
     public Player addPlayer(@RequestBody Player player) {
         return playerService.addPlayer(player);
     }
+
+    @DeleteMapping("/deleteById/{id}")
+    public String deletePlayerById(@PathVariable int id) {
+        return playerService.deletePlayerById(id);
+    }
+
+    @DeleteMapping("delete/{nick}")
+    public String deletePlayer(@PathVariable String nick) {
+        return playerService.deletePlayer(nick);
+    }
 }
