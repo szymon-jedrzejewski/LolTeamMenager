@@ -20,7 +20,7 @@ public class PlayerStats {
     @Column(name = "positioning")
     private int positioning;
 
-    private int[] statArray;
+
 
     public PlayerStats(int mechanics, int mapAwareness, int laningPhase, int teamfighting, int positioning) {
         this.mechanics = mechanics;
@@ -28,22 +28,10 @@ public class PlayerStats {
         this.laningPhase = laningPhase;
         this.teamfighting = teamfighting;
         this.positioning = positioning;
-
-        this.statArray = new int[]{mechanics
-                ,mapAwareness
-                ,laningPhase
-                ,teamfighting
-                ,positioning};
     }
 
+    public PlayerStats() {
 
-
-    public int[] getStatArray() {
-        return statArray;
-    }
-
-    public void setStatArray(int[] statArray) {
-        this.statArray = statArray;
     }
 
     public int getId() {
