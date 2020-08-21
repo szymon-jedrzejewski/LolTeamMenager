@@ -12,29 +12,21 @@ public class PlayerStats {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
-    private int mechanics;
+    private int mechanics = 100;
 
-    private int mapAwareness;
+    private int mapAwareness = 100;
 
-    private int laningPhase;
+    private int laningPhase = 100;
 
-    private int teamfighting;
+    private int teamfighting = 100;
 
-    private int positioning;
+    private int positioning = 100;
 
     @JsonIgnore
     @OneToOne(mappedBy = "playerStats")
     private Player player;
 
     public PlayerStats() {
-    }
-
-    public PlayerStats(int mechanics, int mapAwareness, int laningPhase, int teamfighting, int positioning) {
-        this.mechanics = mechanics;
-        this.mapAwareness = mapAwareness;
-        this.laningPhase = laningPhase;
-        this.teamfighting = teamfighting;
-        this.positioning = positioning;
     }
 
     public int getId() {
