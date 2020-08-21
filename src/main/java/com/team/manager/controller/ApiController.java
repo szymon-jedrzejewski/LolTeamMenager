@@ -19,7 +19,7 @@ public class ApiController {
     }
 
     @GetMapping("/players")
-    public List<Player> findAllPlayers() {
+    public List<Player> getAllPlayers() {
         return playerService.getPlayers();
     }
 
