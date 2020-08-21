@@ -1,26 +1,33 @@
 package com.team.manager.entity;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.Arrays;
+
 @Entity
-@Table(name = "player_stats")
 public class PlayerStats {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
-    @Column(name = "player_id")
-    private int playerId;
-    @Column(name = "mechanics")
+
     private int mechanics;
-    @Column(name = "map_awareness")
+
     private int mapAwareness;
-    @Column(name = "laning_phase")
+
     private int laningPhase;
-    @Column(name = "teamfighting")
+
     private int teamfighting;
-    @Column(name = "positioning")
+
     private int positioning;
 
+    @JsonIgnore
+    @OneToOne(mappedBy = "playerStats")
+    private Player player;
 
+    public PlayerStats() {
+    }
 
     public PlayerStats(int mechanics, int mapAwareness, int laningPhase, int teamfighting, int positioning) {
         this.mechanics = mechanics;
@@ -30,16 +37,8 @@ public class PlayerStats {
         this.positioning = positioning;
     }
 
-    public PlayerStats() {
-
-    }
-
     public int getId() {
         return id;
-    }
-
-    public int getPlayerId() {
-        return playerId;
     }
 
     public int getMechanics() {
@@ -82,4 +81,15 @@ public class PlayerStats {
         this.positioning = positioning;
     }
 
+    @Override
+    public String toString() {
+        return "PlayerStats{" +
+                "id=" + id +
+                ", mechanics=" + mechanics +
+                ", mapAwareness=" + mapAwareness +
+                ", laningPhase=" + laningPhase +
+                ", teamfighting=" + teamfighting +
+                ", positioning=" + positioning +
+                '}';
+    }
 }

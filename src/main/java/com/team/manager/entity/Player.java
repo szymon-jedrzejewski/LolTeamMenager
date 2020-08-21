@@ -1,44 +1,45 @@
 package com.team.manager.entity;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-
 import javax.persistence.*;
 
 @Entity
-@Table(name = "player")
 public class Player {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
-    @Column(name = "player_id")
-    private int playerId;
-    @Column(name = "name")
-    private String name;
-    @Column(name = "surname")
-    private String surname;
-    @Column(name = "nick")
-    private String nick;
-    @Column(name = "role")
-    private String role;
-    @Column(name = "age")
-    private String age;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int id;
+
+    private String name;
+
+    private String surname;
+
+    private String nick;
+
+    private String role;
+
+    private int age;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "stats_id")
+    private PlayerStats playerStats;
+
+    @OneToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "team_id")
+    private Team team;
+
+    public Player() {
+    }
+
+    public Player(String name, String surname, String nick, String role, int age) {
+        this.name = name;
+        this.surname = surname;
+        this.nick = nick;
+        this.role = role;
+        this.age = age;
+    }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getPlayerId() {
-        return playerId;
-    }
-
-    public void setPlayerId(int playerId) {
-        this.playerId = playerId;
     }
 
     public String getName() {
@@ -73,85 +74,41 @@ public class Player {
         this.role = role;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
-}
 
-
-
-
-
-
-/*
-
-@Entity
-@Table(name = "customer")
-public class Customer {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
-
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Column(name = "last_name")
-    private String lastName;
-
-    @Column(name = "email")
-    private String email;
-
-    public Customer() {
-
+    public PlayerStats getPlayerStats() {
+        return playerStats;
     }
 
-    public int getId() {
-        return id;
+    public Team getTeam() {
+        return team;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPlayerStats(PlayerStats playerStats) {
+        this.playerStats = playerStats;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setTeam(Team team) {
+        this.team = team;
     }
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "Player{" +
                 "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", nick='" + nick + '\'' +
+                ", role='" + role + '\'' +
+                ", age='" + age + '\'' +
+                ", playerId=" + playerStats +
+                ", teamId=" + team +
                 '}';
     }
 }
-
-*/
