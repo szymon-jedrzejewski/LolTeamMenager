@@ -26,4 +26,34 @@ public class PlayerService {
     public Player addPlayer(Player player) {
         return playerRepository.save(player);
     }
+
+    public Player getPlayerByNick(String nick) {
+        return playerRepository.findByNick(nick).orElse(null);
+    }
+
+    public String deletePlayerById(int id) {
+        playerRepository.deleteById(id);
+        return "Player with id " + id + " was deleted!";
+    }
+
+    public String deletePlayer(String nick) {
+        Player playerToDelete = playerRepository.findByNick(nick).orElse(null);
+        playerRepository.deleteById(playerToDelete.getId());
+        return "Player with nick " + nick + " was deleted!";
+    }
+
+    public Player updatePlayer(Player player) {
+
+        Player actualPlayer = playerRepository.findById(player.getId()).orElse(null);
+
+        actualPlayer.setName(player.getName());
+        actualPlayer.setSurname(player.getSurname());
+        actualPlayer.setNick(player.getNick());
+        actualPlayer.setRole(player.getRole());
+        actualPlayer.setAge(player.getAge());
+        actualPlayer.setPlayerStats(player.getPlayerStats());
+        actualPlayer.setTeam(player.getTeam());
+
+        return playerRepository.save(player);
+    }
 }

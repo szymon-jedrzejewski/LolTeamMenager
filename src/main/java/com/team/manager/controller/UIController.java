@@ -19,8 +19,13 @@ public class UIController {
         this.playerService = playerService;
     }
 
-    @GetMapping("/first_view")
-    public String hello() {
-        return "index";
+    @GetMapping("/all_players")
+    public String allPlayers() {
+        return "all_players";
+    }
+
+    @GetMapping("/add_player")
+    public String addPlayer() {
+        return "add_player";
     }
 }
