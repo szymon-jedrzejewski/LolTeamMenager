@@ -1,64 +1,43 @@
 body{
-    background: url("../css/prism.png");
-}
-h1{
-    text-align: center;
-    background: black;
-    border-top: 5px #272b2d solid;
-    border-bottom: 5px #272b2d solid;
-    color: white;
-    text-transform: uppercase;
+    background: url("../images/prism.png");
 }
 #container{
     background: #0090c1;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    width: 1200px;
+    width: 1600px;
     margin: auto;
     border-radius: 40px;
-    border: 2px #022f40 solid;
+    border: 2px white solid;
 }
-.actionbars{
-    background: #38aecc;
-    width: 400px;
-    height: 70px;
-    border-radius: 5px;
-    margin: 20px;
-    margin-top: 20px;
-    margin-left: 400px;
+h1{
     text-align: center;
-    font-size: 30px;
+    background: #022f40;
+    border-top: 3px white solid;
+    padding: 5px 0px 5px 0px;
+    border-bottom: 3px white solid;
+    color: white;
+    text-transform: uppercase;
+}
 
-}
-.link{
-    text-decoration: none;
-    color: black;
-    margin: 20px;
-}
-.link:visited{
-    text-decoration: none;
-    color: black;
-}
-#lpanel{
-    float: left;
-    padding: 50px;
-
-}
-#content{
-    float: left;
-}
 #footer{
     clear: both;
     text-align: center;
-    background: black;
+    background: #022f40;
     float: bottom;
     height: 50px;
     border-bottom-right-radius: 40px;
     border-bottom-left-radius: 40px;
-    border: 2px black solid;
+    border-top: 3px white solid;
 }
-#text{
+#f_text{
     padding: 15px;
     color: white;
+    text-transform: uppercase;
+}
+.actionbars{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
