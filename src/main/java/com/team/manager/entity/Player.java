@@ -107,8 +107,8 @@ public class Player {
                 ", nick='" + nick + '\'' +
                 ", role='" + role + '\'' +
                 ", age='" + age + '\'' +
-                ", playerId=" + playerStats +
-                ", teamId=" + team +
+                ", playerStats=" + playerStats +
+                ", team=" + team +
                 '}';
     }
 }

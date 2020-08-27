@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(methods = {RequestMethod.POST, RequestMethod.DELETE, RequestMethod.GET, RequestMethod.PUT})
 public class ApiController {
 
     private final PlayerService playerService;
@@ -19,12 +20,37 @@ public class ApiController {
     }
 
     @GetMapping("/players")
-    public List<Player> findAllPlayers() {
+    public List<Player> getAllPlayers() {
         return playerService.getPlayers();
+    }
+
+    @GetMapping("/playerById/{id}")
+    public Player getPlayerById(@PathVariable int id) {
+        return playerService.getPlayerById(id);
+    }
+
+    @GetMapping("/player/{nick}")
+    public Player getPlayerByNick(@PathVariable String nick) {
+        return playerService.getPlayerByNick(nick);
     }
 
     @PostMapping("/add")
     public Player addPlayer(@RequestBody Player player) {
         return playerService.addPlayer(player);
+    }
+
+    @DeleteMapping("/deleteById/{id}")
+    public String deletePlayerById(@PathVariable int id) {
+        return playerService.deletePlayerById(id);
+    }
+
+    @DeleteMapping("delete/{nick}")
+    public String deletePlayer(@PathVariable String nick) {
+        return playerService.deletePlayer(nick);
+    }
+
+    @PutMapping("/update")
+    public Player updatePlayer(@RequestBody Player player) {
+        return playerService.updatePlayer(player);
     }
 }
