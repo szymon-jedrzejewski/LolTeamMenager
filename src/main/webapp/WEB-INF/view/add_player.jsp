@@ -39,10 +39,7 @@
             <td><label>Age:</label></td>
             <td><input type="number" id="age"></td>
         </tr>
-        <tr>
-            <td><label>Team:</label></td>
-            <td><input type="text" id="team"></td>
-        </tr>
+
         </tbody>
     </table>
 </form>

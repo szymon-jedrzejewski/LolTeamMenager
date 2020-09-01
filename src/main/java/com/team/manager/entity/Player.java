@@ -1,5 +1,7 @@
 package com.team.manager.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -23,7 +25,7 @@ public class Player {
     @JoinColumn(name = "stats_id")
     private PlayerStats playerStats;
 
-    @OneToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "team_id")
     private Team team;
 

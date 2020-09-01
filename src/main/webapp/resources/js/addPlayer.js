@@ -26,10 +26,7 @@ function getPlayer() {
         nick: '',
         role: '',
         age: 0,
-        playerStats: {},
-        team: {
-            name: ''
-        }
+        playerStats: {}
     }
 
     newPlayer.name = document.querySelector('#name').value;
@@ -37,7 +34,6 @@ function getPlayer() {
     newPlayer.nick = document.querySelector('#nick').value;
     newPlayer.role = document.querySelector('#role').value;
     newPlayer.age = document.querySelector('#age').value;
-    newPlayer.team.name = document.querySelector('#team').value;
 
     console.log(newPlayer);
 

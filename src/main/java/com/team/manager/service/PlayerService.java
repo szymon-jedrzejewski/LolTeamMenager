@@ -54,6 +54,6 @@ public class PlayerService {
         actualPlayer.setPlayerStats(player.getPlayerStats());
         actualPlayer.setTeam(player.getTeam());
 
-        return playerRepository.save(player);
+        return playerRepository.save(actualPlayer);
     }
 }
