@@ -41,8 +41,9 @@ function show(data) {
             <td>${r.nick}</td>  
             <td>${r.role}</td>
             <td>${r.age}</td>           
+            <td><button class="deletePlayer" id="${r.nick}">Delete</button></td>           
         </tr>`;
     }
     // Setting innerHTML as tab variable 
-    document.getElementById("employees").innerHTML = tab;
+    document.getElementById("players").innerHTML = tab;
 }

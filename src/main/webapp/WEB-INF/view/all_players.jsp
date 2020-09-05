@@ -25,7 +25,7 @@
 </div>
 <h1>Players</h1>
 <!-- table for showing data -->
-<table id="employees"></table>
+<table id="players"></table>
 
 <form action="${pageContext.request.contextPath}/add_player">
     <input type="submit" value="Add player" />
