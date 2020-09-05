@@ -47,3 +47,19 @@ function show(data) {
     // Setting innerHTML as tab variable 
     document.getElementById("players").innerHTML = tab;
 }
+
+document.querySelector("#players")
+    .addEventListener('click', event => {
+
+        if (event.target.className === 'deletePlayer') {
+
+            return fetch('http://localhost:8090/api/delete/' + event.target.id, {
+                method: 'delete',
+            }).then(response =>
+                response.json().then(json => {
+                    location.reload();
+                    return json;
+                })
+            );
+        }
+    });
