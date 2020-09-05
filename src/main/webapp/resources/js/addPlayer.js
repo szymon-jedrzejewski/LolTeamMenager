@@ -29,10 +29,12 @@ function getPlayer() {
         playerStats: {}
     }
 
+    const roles = document.querySelector('#roles');
+    console.log(roles)
     newPlayer.name = document.querySelector('#name').value;
     newPlayer.surname = document.querySelector('#surname').value;
     newPlayer.nick = document.querySelector('#nick').value;
-    newPlayer.role = document.querySelector('#role').value;
+    newPlayer.role = roles.options[roles.selectedIndex].value;
     newPlayer.age = document.querySelector('#age').value;
 
     console.log(newPlayer);
