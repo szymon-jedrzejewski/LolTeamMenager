@@ -1,4 +1,12 @@
-document.querySelector('#add-player-button').addEventListener('click', addPlayer);
+const playerAddButton = document.querySelector('#add-player-button');
+
+playerAddButton.addEventListener('click', addPlayer);
+
+document.addEventListener('keyup', function (event) {
+    if (event.key === 'Enter') {
+        playerAddButton.click()
+    }
+})
 
 let xhr = new XMLHttpRequest();
 let url = "http://localhost:8090/api/add";
