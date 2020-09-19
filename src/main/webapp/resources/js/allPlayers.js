@@ -14,14 +14,16 @@ async function getapi(url) {
     }
     show(data);
 }
-// Calling that async function 
+
+// Calling that async function
 getapi(api_url);
 
 // Function to hide the loader 
 function hideloader() {
     document.getElementById('loading').style.display = 'none';
 }
-// Function to define innerHTML for HTML table 
+
+// Function to define innerHTML for HTML table
 function show(data) {
     let tab =
         `<tr> 
@@ -42,24 +44,32 @@ function show(data) {
             <td>${r.role}</td>
             <td>${r.age}</td>           
             <td><button class="deletePlayer" id="${r.nick}">Delete</button></td>           
+            <td><button class="updatePlayer" id="${r.id}">Update</button></td>           
         </tr>`;
     }
     // Setting innerHTML as tab variable 
     document.getElementById("players").innerHTML = tab;
 }
 
-document.querySelector("#players")
-    .addEventListener('click', event => {
+const players = document.querySelector("#players");
 
-        if (event.target.className === 'deletePlayer') {
+players.addEventListener('click', event => {
 
-            return fetch('http://localhost:8090/api/delete/' + event.target.id, {
-                method: 'delete',
-            }).then(response =>
-                response.json().then(json => {
-                    location.reload();
-                    return json;
-                })
-            );
-        }
-    });
+    if (event.target.className === 'deletePlayer') {
+
+        return fetch('http://localhost:8090/api/delete/' + event.target.id, {
+            method: 'delete',
+        }).then(response =>
+            response.json().then(json => {
+                location.reload();
+                return json;
+            })
+        );
+    }
+});
+
+players.addEventListener('click', event => {
+    if (event.target.className === "updatePlayer") {
+
+    }
+})
