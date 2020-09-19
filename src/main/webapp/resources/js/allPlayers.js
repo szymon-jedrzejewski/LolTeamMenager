@@ -1,12 +1,12 @@
-const api_url = 'http://localhost:8090/api/players';
+const api_url = 'http://localhost:8090/player_api/players';
 
-// Defining async function 
+// Defining async function
 async function getapi(url) {
 
-    // Storing response 
+    // Storing response
     const response = await fetch(url);
 
-    // Storing data in form of JSON 
+    // Storing data in form of JSON
     var data = await response.json();
     console.log(data);
     if (response) {
@@ -18,7 +18,7 @@ async function getapi(url) {
 // Calling that async function
 getapi(api_url);
 
-// Function to hide the loader 
+// Function to hide the loader
 function hideloader() {
     document.getElementById('loading').style.display = 'none';
 }
@@ -34,7 +34,7 @@ function show(data) {
             <th>Age</th> 
          </tr>`;
 
-    // Loop to access all rows  
+    // Loop to access all rows
     for (let r of data) {
         tab +=
             `<tr>  
@@ -47,17 +47,18 @@ function show(data) {
             <td><button class="updatePlayer" id="${r.id}">Update</button></td>           
         </tr>`;
     }
-    // Setting innerHTML as tab variable 
+    // Setting innerHTML as tab variable
     document.getElementById("players").innerHTML = tab;
 }
 
 const players = document.querySelector("#players");
 
+//TODO move it to separate script
 players.addEventListener('click', event => {
 
     if (event.target.className === 'deletePlayer') {
 
-        return fetch('http://localhost:8090/api/delete/' + event.target.id, {
+        return fetch('http://localhost:8090/player_api/delete/' + event.target.id, {
             method: 'delete',
         }).then(response =>
             response.json().then(json => {

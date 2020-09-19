@@ -9,7 +9,7 @@ document.addEventListener('keyup', function (event) {
 })
 
 let xhr = new XMLHttpRequest();
-let url = "http://localhost:8090/api/add";
+let url = "http://localhost:8090/player_api/add";
 
 // open a connection 
 xhr.open("POST", url, true);
