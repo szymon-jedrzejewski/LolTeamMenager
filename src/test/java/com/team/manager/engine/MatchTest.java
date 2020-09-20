@@ -2,6 +2,7 @@ package com.team.manager.engine;
 
 import com.team.manager.entity.Player;
 import com.team.manager.entity.PlayerStats;
+import com.team.manager.enums.MatchResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -70,7 +71,7 @@ class MatchTest {
         TeamB.add(pB4);
         TeamB.add(pB5);
 
-        assertEquals(0, match.matchResult(TeamA,TeamB));
+        assertEquals(MatchResult.TIE, match.matchResult(TeamA,TeamB));
 
     }
 
@@ -111,7 +112,7 @@ class MatchTest {
         TeamB.add(pB4);
         TeamB.add(pB5);
 
-        assertEquals(1, match.matchResult(TeamA,TeamB));
+        assertEquals(MatchResult.TEAM_A_WIN, match.matchResult(TeamA,TeamB));
 
     }
 
@@ -152,7 +153,7 @@ class MatchTest {
         TeamB.add(pB4);
         TeamB.add(pB5);
 
-        assertEquals(-1, match.matchResult(TeamA,TeamB));
+        assertEquals(MatchResult.TEAM_B_WIN, match.matchResult(TeamA,TeamB));
 
     }
 

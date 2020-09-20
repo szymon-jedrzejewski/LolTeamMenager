@@ -2,13 +2,14 @@ package com.team.manager.engine;
 
 import com.team.manager.entity.Player;
 import com.team.manager.entity.PlayerStats;
+import com.team.manager.enums.MatchResult;
+import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
 import java.util.List;
 
+@Component
 public class Match {
-
-    PlayerStats stats = new PlayerStats();
 
     public int comparePlayerStats(Player a, Player b) {
         int score = 0;
@@ -36,19 +37,19 @@ public class Match {
         return score;
     }
 
-    public int matchResult(List<Player> teamA, List<Player> teamB) {
+    public MatchResult matchResult(List<Player> teamA, List<Player> teamB) {
         int scoreA = 0, scoreB = 0;
         for (int i = 0; i < 5; i++) {
             scoreA = scoreA + comparePlayerStats(teamA.get(i), teamB.get(i));
             scoreB = scoreB + comparePlayerStats(teamB.get(i), teamA.get(i));
         }
-        System.out.println("Team A score: " + scoreA + " Team B score: " + scoreB);
+
         if (scoreA > scoreB) {
-            return 1;
+            return MatchResult.TEAM_A_WIN;
         } else if (scoreA == scoreB) {
-            return 0;
+            return MatchResult.TIE;
         } else {
-            return -1;
+            return MatchResult.TEAM_B_WIN;
         }
     }
 }
