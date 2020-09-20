@@ -9,8 +9,16 @@
 <html>
 <head>
     <title>Update player</title>
+    <script src="../../resources/js/updatePlayer.js" async></script>
 </head>
 <body>
+<div class="d-flex justify-content-center">
+    <div class="spinner-border" role="status" id="loading">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<table id="players"></table>
 
 </body>
 </html>
