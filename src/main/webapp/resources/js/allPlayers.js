@@ -44,7 +44,7 @@ function show(data) {
             <td>${r.role}</td>
             <td>${r.age}</td>           
             <td><button class="deletePlayer" id="${r.nick}">Delete</button></td>           
-            <td><button class="updatePlayer" id="${r.id}">Update</button></td>           
+            <td><button class="updatePlayer" id="${r.nick}">Update</button></td>           
         </tr>`;
     }
     // Setting innerHTML as tab variable
@@ -71,6 +71,6 @@ players.addEventListener('click', event => {
 
 players.addEventListener('click', event => {
     if (event.target.className === "updatePlayer") {
-
+        location.href = 'http://localhost:8090/update_player?nick=' + event.target.id
     }
 })
