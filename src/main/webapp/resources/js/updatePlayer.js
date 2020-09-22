@@ -36,31 +36,12 @@ function show(data) {
         team = '';
     }
 
-    const tab =
-        `<tr>  
-            <th>Name</th> 
-            <td>${data.name} </td>
-        </tr>
-        <tr>
-            <th>Surname</th> 
-            <td>${data.surname}</td> 
-        </tr>
-        <tr>
-            <th>Nick</th> 
-            <td>${data.nick}</td>
-        </tr>
-        <tr> 
-            <th>Role</th>
-            <td>${data.role}</td>
-        </tr>
-        <tr>
-            <th>Age</th> 
-            <td>${data.age}</td>           
-        </tr>
-        <tr>
-            <th>Team</th> 
-            <td>${team}</td>           
-        </tr>`;
+    document.querySelector('#name').appendChild(document.createElement('p').appendChild(document.createTextNode('Name: ' + data.name)));
+    document.querySelector('#surname').appendChild(document.createElement('p').appendChild(document.createTextNode('Surname: ' + data.surname)));
+    document.querySelector('#nick').appendChild(document.createElement('p').appendChild(document.createTextNode('Nick: ' + data.nick)));
+    document.querySelector('#role').appendChild(document.createElement('p').appendChild(document.createTextNode('Role: ' + data.role)));
+    document.querySelector('#age').appendChild(document.createElement('p').appendChild(document.createTextNode('Age: ' + data.age)));
+    document.querySelector('#team').appendChild(document.createElement('p').appendChild(document.createTextNode('Team: ' + team)));
 
     // Setting innerHTML as tab variable
     document.getElementById("players").innerHTML = tab;
