@@ -36,13 +36,10 @@ function show(data) {
         team = '';
     }
 
-    document.querySelector('#name').appendChild(document.createElement('p').appendChild(document.createTextNode('Name: ' + data.name)));
-    document.querySelector('#surname').appendChild(document.createElement('p').appendChild(document.createTextNode('Surname: ' + data.surname)));
-    document.querySelector('#nick').appendChild(document.createElement('p').appendChild(document.createTextNode('Nick: ' + data.nick)));
-    document.querySelector('#role').appendChild(document.createElement('p').appendChild(document.createTextNode('Role: ' + data.role)));
-    document.querySelector('#age').appendChild(document.createElement('p').appendChild(document.createTextNode('Age: ' + data.age)));
-    document.querySelector('#team').appendChild(document.createElement('p').appendChild(document.createTextNode('Team: ' + team)));
-
-    // Setting innerHTML as tab variable
-    document.getElementById("players").innerHTML = tab;
+    document.querySelector("#player-name").textContent += data.name
+    document.querySelector("#player-surname").textContent += data.surname
+    document.querySelector("#player-nick").textContent += data.nick
+    document.querySelector("#player-role").textContent += data.role
+    document.querySelector("#player-age").textContent += data.age
+    document.querySelector("#player-team").textContent += team
 }

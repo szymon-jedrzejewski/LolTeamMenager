@@ -21,23 +21,23 @@
             </div>
 
             <div id=player-info>
-                <div id="name">
-
+                <div id="player-name">
+                    <p id="name">Name: </p>
                 </div>
-                <div id="surname">
-
+                <div id="player-surname">
+                    <p id="surname">Surname: </p>
                 </div>
-                <div id="nick">
-
+                <div id="player-nick">
+                    <p id="nick">Nick: </p>
                 </div>
-                <div id="role">
-
+                <div id="player-role">
+                    <p id="role">Role: </p>
                 </div>
-                <div id="age">
-
+                <div id="player-age">
+                    <p id="age">Age: </p>
                 </div>
-                <div id="team">
-
+                <div id="player-team">
+                    <p id="team">Team: </p>
                 </div>
             </div>
 
