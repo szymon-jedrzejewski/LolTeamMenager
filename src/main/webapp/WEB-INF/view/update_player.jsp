@@ -24,20 +24,47 @@
                 <div id="player-name">
                     <p id="name">Name: </p>
                 </div>
+                <div id="edit-name">
+                    <button class="edit-button">Edit</button>
+                </div>
+
                 <div id="player-surname">
                     <p id="surname">Surname: </p>
                 </div>
+                <div id="edit-surname">
+                    <button class="edit-button">Edit</button>
+                </div>
+
                 <div id="player-nick">
                     <p id="nick">Nick: </p>
+                    <button class="edit-button">Edit</button>
                 </div>
+                <div id="edit-nick">
+                    <button class="edit-button">Edit</button>
+                </div>
+
                 <div id="player-role">
                     <p id="role">Role: </p>
+                    <button class="edit-button">Edit</button>
                 </div>
+                <div id="edit-role">
+                    <button class="edit-button">Edit</button>
+                </div>
+
                 <div id="player-age">
                     <p id="age">Age: </p>
+                    <button class="edit-button">Edit</button>
                 </div>
+                <div id="edit-age">
+                    <button class="edit-button">Edit</button>
+                </div>
+
                 <div id="player-team">
                     <p id="team">Team: </p>
+                    <button class="edit-button">Edit</button>
+                </div>
+                <div id="edit-team">
+                    <button class="edit-button">Edit</button>
                 </div>
             </div>
 
