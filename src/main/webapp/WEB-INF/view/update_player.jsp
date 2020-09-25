@@ -11,6 +11,7 @@
         <head>
             <title>Update player</title>
             <script src="../../resources/js/updatePlayer.js" async></script>
+            <link rel="stylesheet" type="text/css" href="../../resources/css/edit-button.css" />
         </head>
 
         <body>
@@ -26,6 +27,10 @@
                 </div>
                 <div id="edit-name">
                     <button class="edit-button">Edit</button>
+                    <div class="content-of-edit">
+                        <label>Name</label>
+                        <input type="text">
+                    </div>
                 </div>
 
                 <div id="player-surname">
@@ -33,38 +38,54 @@
                 </div>
                 <div id="edit-surname">
                     <button class="edit-button">Edit</button>
+                    <div class="content-of-edit">
+                        <label>Surname</label>
+                        <input type="text">
+                    </div>
                 </div>
 
                 <div id="player-nick">
                     <p id="nick">Nick: </p>
-                    <button class="edit-button">Edit</button>
                 </div>
                 <div id="edit-nick">
                     <button class="edit-button">Edit</button>
+                    <div class="content-of-edit">
+                        <label>Nick</label>
+                        <input type="text">
+                    </div>
                 </div>
 
                 <div id="player-role">
                     <p id="role">Role: </p>
-                    <button class="edit-button">Edit</button>
                 </div>
                 <div id="edit-role">
                     <button class="edit-button">Edit</button>
+                    <div class="content-of-edit">
+                        <label>Role</label>
+                        <input type="text">
+                    </div>
                 </div>
 
                 <div id="player-age">
                     <p id="age">Age: </p>
-                    <button class="edit-button">Edit</button>
                 </div>
                 <div id="edit-age">
                     <button class="edit-button">Edit</button>
+                    <div class="content-of-edit">
+                        <label>Age</label>
+                        <input type="text">
+                    </div>
                 </div>
 
                 <div id="player-team">
                     <p id="team">Team: </p>
-                    <button class="edit-button">Edit</button>
                 </div>
                 <div id="edit-team">
                     <button class="edit-button">Edit</button>
+                    <div class="content-of-edit">
+                        <label>Team</label>
+                        <input type="text">
+                    </div>
                 </div>
             </div>
 
