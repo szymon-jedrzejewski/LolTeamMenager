@@ -10,6 +10,7 @@
 
         <head>
             <title>Update player</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
             <script src="../../resources/js/updatePlayer.js" async></script>
             <link rel="stylesheet" type="text/css" href="../../resources/css/edit-button.css" />
         </head>
@@ -27,7 +28,7 @@
                 </div>
                 <div id="edit-name">
                     <button class="edit-button">Edit</button>
-                    <div class="content-of-edit">
+                    <div class="content">
                         <label>Name</label>
                         <input type="text">
                     </div>
@@ -38,7 +39,7 @@
                 </div>
                 <div id="edit-surname">
                     <button class="edit-button">Edit</button>
-                    <div class="content-of-edit">
+                    <div class="content">
                         <label>Surname</label>
                         <input type="text">
                     </div>
@@ -49,7 +50,7 @@
                 </div>
                 <div id="edit-nick">
                     <button class="edit-button">Edit</button>
-                    <div class="content-of-edit">
+                    <div class="content">
                         <label>Nick</label>
                         <input type="text">
                     </div>
@@ -60,7 +61,7 @@
                 </div>
                 <div id="edit-role">
                     <button class="edit-button">Edit</button>
-                    <div class="content-of-edit">
+                    <div class="content">
                         <label>Role</label>
                         <input type="text">
                     </div>
@@ -71,7 +72,7 @@
                 </div>
                 <div id="edit-age">
                     <button class="edit-button">Edit</button>
-                    <div class="content-of-edit">
+                    <div class="content">
                         <label>Age</label>
                         <input type="text">
                     </div>
@@ -82,7 +83,7 @@
                 </div>
                 <div id="edit-team">
                     <button class="edit-button">Edit</button>
-                    <div class="content-of-edit">
+                    <div class="content">
                         <label>Team</label>
                         <input type="text">
                     </div>

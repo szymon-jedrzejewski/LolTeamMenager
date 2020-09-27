@@ -36,10 +36,25 @@ function show(data) {
         team = '';
     }
 
-    document.querySelector("#player-name").textContent += data.name
-    document.querySelector("#player-surname").textContent += data.surname
-    document.querySelector("#player-nick").textContent += data.nick
-    document.querySelector("#player-role").textContent += data.role
-    document.querySelector("#player-age").textContent += data.age
-    document.querySelector("#player-team").textContent += team
+    document.querySelector('#player-name').textContent += data.name
+    document.querySelector('#player-surname').textContent += data.surname
+    document.querySelector('#player-nick').textContent += data.nick
+    document.querySelector('#player-role').textContent += data.role
+    document.querySelector('#player-age').textContent += data.age
+    document.querySelector('#player-team').textContent += team
+}
+
+const editButtons = document.getElementsByClassName('edit-button');
+console.log(editButtons[0]);
+for (let i = 0; editButtons.length; i++) {
+    editButtons[i].addEventListener('click', function() {
+        this.classList.toggle('active');
+        let content = this.nextElementSibling;
+        console.log(content);
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null
+        } else {
+            content.style.maxHeight = content.scrollHeight + 'px';
+        }
+    });
 }
