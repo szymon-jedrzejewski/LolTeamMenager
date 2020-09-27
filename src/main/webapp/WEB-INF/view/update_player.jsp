@@ -90,7 +90,7 @@
                 </div>
             </div>
 
-            <table id="players"></table>
+            <input id="save" type="submit" value="Save" />
 
         </body>
 

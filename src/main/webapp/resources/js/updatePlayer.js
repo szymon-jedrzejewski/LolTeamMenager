@@ -3,6 +3,9 @@ console.log(pageUrl);
 const nick = new URLSearchParams(pageUrl).get('nick');
 console.log(nick);
 const playerUrl = 'http://localhost:8090/player_api/player/' + nick;
+let data;
+const editButtons = document.getElementsByClassName('edit-button');
+
 
 async function getapi(url) {
 
@@ -10,7 +13,7 @@ async function getapi(url) {
     const response = await fetch(url);
 
     // Storing data in form of JSON
-    var data = await response.json();
+    data = await response.json();
     console.log(data);
     if (response) {
         hideloader();
@@ -44,8 +47,6 @@ function show(data) {
     document.querySelector('#player-team').textContent += team
 }
 
-const editButtons = document.getElementsByClassName('edit-button');
-console.log(editButtons[0]);
 for (let i = 0; editButtons.length; i++) {
     editButtons[i].addEventListener('click', function() {
         this.classList.toggle('active');
