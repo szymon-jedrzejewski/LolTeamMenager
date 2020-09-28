@@ -24,7 +24,7 @@
             <td><input type="text" id="name"></td>
         </tr>
         <tr>
-            <td> <label>Last name:</label></td>
+            <td><label>Last name:</label></td>
             <td><input type="text" id="surname"></td>
         </tr>
         <tr>
@@ -33,21 +33,25 @@
         </tr>
         <tr>
             <td><label>Role:</label></td>
-            <td><input type="text" id="role"></td>
+            <td><select id="roles">
+                <option value="TOP">TOP</option>
+                <option value="JNG">JNG</option>
+                <option value="MID">MID</option>
+                <option value="ADC">ADC</option>
+                <option value="SUP">SUP</option>
+            </select>
+            </td>
         </tr>
         <tr>
             <td><label>Age:</label></td>
             <td><input type="number" id="age"></td>
         </tr>
-        <tr>
-            <td><label>Team:</label></td>
-            <td><input type="text" id="team"></td>
-        </tr>
+
         </tbody>
     </table>
 </form>
 <form action="${pageContext.request.contextPath}/all_players">
-    <input id="add-player-button" type="submit" value="Add player" />
+    <input id="add-player-button" type="submit" value="Add player"/>
 </form>
 
 </body>

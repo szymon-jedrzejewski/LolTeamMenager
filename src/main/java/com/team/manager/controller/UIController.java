@@ -28,4 +28,9 @@ public class UIController {
     public String addPlayer() {
         return "add_player";
     }
+
+    @GetMapping("/update_player")
+    public String updatePlayer() {
+        return "update_player";
+    }
 }

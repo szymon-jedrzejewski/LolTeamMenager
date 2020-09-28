@@ -9,7 +9,7 @@
 <html lang="en">
 
 <head>
-    <script src="../../resources/js/script.js" async></script>
+    <script src="../../resources/js/allPlayers.js" async></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LoL Team Manager</title>
@@ -25,7 +25,7 @@
 </div>
 <h1>Players</h1>
 <!-- table for showing data -->
-<table id="employees"></table>
+<table id="players"></table>
 
 <form action="${pageContext.request.contextPath}/add_player">
     <input type="submit" value="Add player" />

@@ -33,13 +33,13 @@ public class PlayerService {
 
     public String deletePlayerById(int id) {
         playerRepository.deleteById(id);
-        return "Player with id " + id + " was deleted!";
+        return "{\"message\":\"Player with id " + id + " was deleted!\"}";
     }
 
     public String deletePlayer(String nick) {
         Player playerToDelete = playerRepository.findByNick(nick).orElse(null);
         playerRepository.deleteById(playerToDelete.getId());
-        return "Player with nick " + nick + " was deleted!";
+        return "{\"message\":\"Player with nick " + nick + " was deleted!\"}";
     }
 
     public Player updatePlayer(Player player) {
@@ -54,6 +54,6 @@ public class PlayerService {
         actualPlayer.setPlayerStats(player.getPlayerStats());
         actualPlayer.setTeam(player.getTeam());
 
-        return playerRepository.save(player);
+        return playerRepository.save(actualPlayer);
     }
 }

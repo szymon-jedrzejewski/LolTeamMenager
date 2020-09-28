@@ -15,8 +15,9 @@ public class Team {
     private String name;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "team")
-    private Player player;
+    @OneToMany(mappedBy = "team", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+            CascadeType.REFRESH})
+    private List<Player> players;
 
     public Team() {
     }
@@ -37,12 +38,12 @@ public class Team {
         this.name = name;
     }
 
-    public Player getPlayer() {
-        return player;
+    public List<Player> getPlayers() {
+        return players;
     }
 
-    public void setPlayer(Player player) {
-        this.player = player;
+    public void setPlayers(List<Player> player) {
+        this.players = player;
     }
 
     @Override
@@ -50,7 +51,7 @@ public class Team {
         return "Team{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", player=" + player +
+                ", player=" + players +
                 '}';
     }
 }

@@ -1,7 +1,15 @@
-document.querySelector('#add-player-button').addEventListener('click', addPlayer);
+const playerAddButton = document.querySelector('#add-player-button');
+
+playerAddButton.addEventListener('click', addPlayer);
+
+document.addEventListener('keyup', function (event) {
+    if (event.key === 'Enter') {
+        playerAddButton.click()
+    }
+})
 
 let xhr = new XMLHttpRequest();
-let url = "http://localhost:8090/api/add";
+let url = "http://localhost:8090/player_api/add";
 
 // open a connection 
 xhr.open("POST", url, true);
@@ -26,18 +34,16 @@ function getPlayer() {
         nick: '',
         role: '',
         age: 0,
-        playerStats: {},
-        team: {
-            name: ''
-        }
+        playerStats: {}
     }
 
+    const roles = document.querySelector('#roles');
+    console.log(roles)
     newPlayer.name = document.querySelector('#name').value;
     newPlayer.surname = document.querySelector('#surname').value;
     newPlayer.nick = document.querySelector('#nick').value;
-    newPlayer.role = document.querySelector('#role').value;
+    newPlayer.role = roles.options[roles.selectedIndex].value;
     newPlayer.age = document.querySelector('#age').value;
-    newPlayer.team.name = document.querySelector('#team').value;
 
     console.log(newPlayer);
 
