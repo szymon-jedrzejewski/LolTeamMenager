@@ -1,11 +1,24 @@
 const pageUrl = window.location.search;
-console.log(pageUrl);
+
 const nick = new URLSearchParams(pageUrl).get('nick');
-console.log(nick);
+
 const playerUrl = 'http://localhost:8090/player_api/player/' + nick;
-let data;
+
 const editButtons = document.getElementsByClassName('edit-button');
 
+const infoInputs = document.getElementsByClassName('updateInfo');
+
+const saveButton = document.querySelector('#save');
+
+saveButton.addEventListener('click', updatePlayer);
+
+let data;
+
+document.addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        saveButton.click()
+    }
+})
 
 async function getapi(url) {
 
@@ -30,8 +43,6 @@ function hideloader() {
 }
 
 function show(data) {
-
-    // Loop to access all rows
 
     let team = data.team;
 
@@ -58,4 +69,18 @@ for (let i = 0; editButtons.length; i++) {
             content.style.maxHeight = content.scrollHeight + 'px';
         }
     });
+}
+
+function updatePlayer() {
+    for (let i = 0; i < infoInputs.length; i++) {
+        let item = infoInputs.item(i);
+        if (item.value.length !== 0) {
+            data[item.id] = item.value;
+            console.log('item: ' + infoInputs.item(i).value);
+            console.log('id: ' + infoInputs.item(i).id);
+            console.log('json: ' + data[infoInputs.item(i).id]);
+        }
+    }
+    console.log(data);
+    return data;
 }

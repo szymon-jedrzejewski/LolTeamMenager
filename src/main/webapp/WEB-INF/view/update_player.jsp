@@ -24,68 +24,68 @@
 
             <div id=player-info>
                 <div id="player-name">
-                    <p id="name">Name: </p>
+                    <p>Name: </p>
                 </div>
                 <div id="edit-name">
                     <button class="edit-button">Edit</button>
                     <div class="content">
                         <label>Name</label>
-                        <input type="text">
+                        <input id="name" class="updateInfo" type="text">
                     </div>
                 </div>
 
                 <div id="player-surname">
-                    <p id="surname">Surname: </p>
+                    <p>Surname: </p>
                 </div>
                 <div id="edit-surname">
                     <button class="edit-button">Edit</button>
                     <div class="content">
                         <label>Surname</label>
-                        <input type="text">
+                        <input id="surname" class="updateInfo" type="text">
                     </div>
                 </div>
 
                 <div id="player-nick">
-                    <p id="nick">Nick: </p>
+                    <p>Nick: </p>
                 </div>
                 <div id="edit-nick">
                     <button class="edit-button">Edit</button>
                     <div class="content">
                         <label>Nick</label>
-                        <input type="text">
+                        <input id="nick" class="updateInfo" type="text">
                     </div>
                 </div>
 
                 <div id="player-role">
-                    <p id="role">Role: </p>
+                    <p>Role: </p>
                 </div>
                 <div id="edit-role">
                     <button class="edit-button">Edit</button>
                     <div class="content">
                         <label>Role</label>
-                        <input type="text">
+                        <input id="role" class="updateInfo" type="text">
                     </div>
                 </div>
 
                 <div id="player-age">
-                    <p id="age">Age: </p>
+                    <p>Age: </p>
                 </div>
                 <div id="edit-age">
                     <button class="edit-button">Edit</button>
                     <div class="content">
                         <label>Age</label>
-                        <input type="text">
+                        <input id="age" class="updateInfo" type="text">
                     </div>
                 </div>
 
                 <div id="player-team">
-                    <p id="team">Team: </p>
+                    <p>Team: </p>
                 </div>
                 <div id="edit-team">
                     <button class="edit-button">Edit</button>
                     <div class="content">
                         <label>Team</label>
-                        <input type="text">
+                        <input id="team" class="updateInfo" type="text">
                     </div>
                 </div>
             </div>
