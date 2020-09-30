@@ -10,7 +10,7 @@ const infoInputs = document.getElementsByClassName('updateInfo');
 
 const saveButton = document.querySelector('#save');
 
-saveButton.addEventListener('click', updatePlayer);
+saveButton.addEventListener('click', sendUpdatedPlayer);
 
 let data;
 
@@ -22,10 +22,8 @@ document.addEventListener('keyup', function(event) {
 
 async function getapi(url) {
 
-    // Storing response
     const response = await fetch(url);
 
-    // Storing data in form of JSON
     data = await response.json();
     console.log(data);
     if (response) {
@@ -34,10 +32,8 @@ async function getapi(url) {
     show(data);
 }
 
-// Calling that async function
 getapi(playerUrl);
 
-// Function to hide the loader
 function hideloader() {
     document.getElementById('loading').style.display = 'none';
 }
@@ -55,7 +51,7 @@ function show(data) {
     document.querySelector('#player-nick').textContent += data.nick
     document.querySelector('#player-role').textContent += data.role
     document.querySelector('#player-age').textContent += data.age
-    document.querySelector('#player-team').textContent += team
+    document.querySelector('#player-team').textContent += team.name
 }
 
 for (let i = 0; editButtons.length; i++) {
@@ -83,4 +79,25 @@ function updatePlayer() {
     }
     console.log(data);
     return data;
+}
+
+function sendUpdatedPlayer() {
+    let xhr = new XMLHttpRequest();
+    let url = 'http://localhost:8090/player_api/update';
+
+    xhr.open('PUT', url, true);
+
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+
+            console.log(xhr.response);
+
+        }
+    };
+
+    const player = JSON.stringify(updatePlayer());
+
+    xhr.send(player);
 }
