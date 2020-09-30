@@ -4,15 +4,15 @@ const nick = new URLSearchParams(pageUrl).get('nick');
 
 const playerUrl = 'http://localhost:8090/player_api/player/' + nick;
 
-const editButtons = document.getElementsByClassName('edit-button');
-
-const infoInputs = document.getElementsByClassName('updateInfo');
-
 const saveButton = document.querySelector('#save');
 
 saveButton.addEventListener('click', sendUpdatedPlayer);
 
-let data;
+let player;
+
+getapi(playerUrl);
+
+rollButtons();
 
 document.addEventListener('keyup', function(event) {
     if (event.key === 'Enter') {
@@ -24,66 +24,79 @@ async function getapi(url) {
 
     const response = await fetch(url);
 
-    data = await response.json();
+    let data = await response.json();
     console.log(data);
     if (response) {
         hideloader();
     }
     show(data);
-}
 
-getapi(playerUrl);
+    player = data;
+}
 
 function hideloader() {
     document.getElementById('loading').style.display = 'none';
 }
 
-function show(data) {
+function show(player) {
 
-    let team = data.team;
-
-    if (team === null) {
-        team = '';
+    document.querySelector('#player-name').textContent += player.name
+    document.querySelector('#player-surname').textContent += player.surname
+    document.querySelector('#player-nick').textContent += player.nick
+    document.querySelector('#player-role').textContent += player.role
+    document.querySelector('#player-age').textContent += player.age
+    if (player.team === null) {
+        document.querySelector('#player-team').textContent += ''
+    } else {
+        document.querySelector('#player-team').textContent += player.team.name
     }
-
-    document.querySelector('#player-name').textContent += data.name
-    document.querySelector('#player-surname').textContent += data.surname
-    document.querySelector('#player-nick').textContent += data.nick
-    document.querySelector('#player-role').textContent += data.role
-    document.querySelector('#player-age').textContent += data.age
-    document.querySelector('#player-team').textContent += team.name
 }
 
-for (let i = 0; editButtons.length; i++) {
-    editButtons[i].addEventListener('click', function() {
-        this.classList.toggle('active');
-        let content = this.nextElementSibling;
-        console.log(content);
-        if (content.style.maxHeight) {
-            content.style.maxHeight = null
-        } else {
-            content.style.maxHeight = content.scrollHeight + 'px';
-        }
-    });
+function rollButtons() {
+    const editButtons = document.getElementsByClassName('edit-button');
+
+    console.log(editButtons);
+
+    for (let i = 0; i < editButtons.length; i++) {
+
+        editButtons[i].addEventListener('click', function() {
+            this.classList.toggle('active');
+            let content = this.nextElementSibling;
+            console.log(content);
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        });
+    }
 }
 
-function updatePlayer() {
+function updatePlayer(infoInputs) {
+
     for (let i = 0; i < infoInputs.length; i++) {
         let item = infoInputs.item(i);
         if (item.value.length !== 0) {
-            data[item.id] = item.value;
+            player[item.id] = item.value;
             console.log('item: ' + infoInputs.item(i).value);
             console.log('id: ' + infoInputs.item(i).id);
-            console.log('json: ' + data[infoInputs.item(i).id]);
+            console.log('json: ' + player[infoInputs.item(i).id]);
         }
     }
-    console.log(data);
-    return data;
+    console.log(player);
+    return player;
+}
+
+function clearInputs(infoInputs) {
+    for (let i = 0; i < infoInputs.length; i++) {
+        infoInputs.item(i).value = ''
+    }
 }
 
 function sendUpdatedPlayer() {
     let xhr = new XMLHttpRequest();
     let url = 'http://localhost:8090/player_api/update';
+    const infoInputs = document.getElementsByClassName('updateInfo');
 
     xhr.open('PUT', url, true);
 
@@ -97,7 +110,11 @@ function sendUpdatedPlayer() {
         }
     };
 
-    const player = JSON.stringify(updatePlayer());
+    const updatedPlayer = JSON.stringify(updatePlayer(infoInputs));
 
-    xhr.send(player);
+    xhr.send(updatedPlayer);
+
+    clearInputs(infoInputs);
+
+    setTimeout(location.reload.bind(location), 100);
 }
