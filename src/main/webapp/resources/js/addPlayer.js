@@ -2,30 +2,11 @@ const playerAddButton = document.querySelector('#add-player-button');
 
 playerAddButton.addEventListener('click', addPlayer);
 
-document.addEventListener('keyup', function (event) {
+document.addEventListener('keyup', function(event) {
     if (event.key === 'Enter') {
         playerAddButton.click()
     }
 })
-
-let xhr = new XMLHttpRequest();
-let url = "http://localhost:8090/player_api/add";
-
-// open a connection 
-xhr.open("POST", url, true);
-
-// Set the request header i.e. which type of content you are sending 
-xhr.setRequestHeader("Content-Type", "application/json");
-
-// Create a state change callback 
-xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-
-        // Print received data from server 
-        console.log(xhr.response);
-
-    }
-};
 
 function getPlayer() {
     let newPlayer = {
@@ -51,6 +32,20 @@ function getPlayer() {
 }
 
 function addPlayer() {
+    let xhr = new XMLHttpRequest();
+    let url = 'http://localhost:8090/player_api/add';
+
+    xhr.open('POST', url, true);
+
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+
+            console.log(xhr.response);
+
+        }
+    };
 
     let player = JSON.stringify(getPlayer());
     xhr.send(player);
