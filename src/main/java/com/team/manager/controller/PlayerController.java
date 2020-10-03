@@ -3,9 +3,16 @@ package com.team.manager.controller;
 import com.team.manager.entity.Player;
 import com.team.manager.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/player_api")
@@ -36,8 +43,9 @@ public class PlayerController
     }
 
     @PostMapping("/add")
-    public Player addPlayer(@RequestBody Player player) {
-        return playerService.addPlayer(player);
+    public ResponseEntity<String> addPlayer(@Valid @RequestBody Player player) {
+        playerService.addPlayer(player);
+        return ResponseEntity.ok("User was added.");
     }
 
     @DeleteMapping("/deleteById/{id}")
@@ -53,5 +61,17 @@ public class PlayerController
     @PutMapping("/update")
     public Player updatePlayer(@RequestBody Player player) {
         return playerService.updatePlayer(player);
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Map<String, String> handleValidationsExceptions(MethodArgumentNotValidException exception) {
+        Map <String, String> errors = new HashMap<>();
+        exception.getBindingResult().getAllErrors().forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+        return errors;
     }
 }

@@ -3,6 +3,9 @@ package com.team.manager.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Player {
@@ -11,14 +14,20 @@ public class Player {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
+    @NotNull(message = "Name is mandatory")
     private String name;
 
+    @NotNull(message = "Surname is mandatory")
     private String surname;
 
+    @NotNull(message = "Nick is mandatory")
     private String nick;
 
+    @NotNull(message = "Role is mandatory")
     private String role;
 
+    @NotNull(message = "Age is mandatory")
+    @Min(value = 16, message = "Player is to young.")
     private int age;
 
     @OneToOne(cascade = CascadeType.ALL)
